@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="detail-container">
+    <div class="detail-header">
+        <h1>{{ formation.titre }}</h1>
+        <a href="{{ url_for('liste_formations') }}" class="btn-back">← Retour</a>
+    </div>
+    
+    <div class="detail-content">
+        <div class="info-section">
+            <h3>Informations générales</h3>
+            <p><strong>⏱️ Durée:</strong> {{ formation.duree }}</p>
+            <p><strong>📊 Niveau:</strong> 
+                <span class="level-badge level-{{ formation.niveau|lower }}">
+                    {{ formation.niveau }}
+                </span>
+            </p>
+        </div>
+        
+        <div class="tech-section">
+            <h3>Technologies abordées</h3>
+            <div class="tech-tags">
+                {% for tech in formation.technologies %}
+                <span class="tech-tag-large">{{ tech }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="action-section">
+            <button class="btn-inscription" onclick="alert('Fonctionnalité à venir - Inscription')">
+                S'inscrire à cette formation
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}

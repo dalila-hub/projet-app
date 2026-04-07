@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <div class="hero-content">
+        <h1>Bienvenue sur FormationHub</h1>
+        <p>Votre plateforme de référence pour les formations en technologies modernes</p>
+        <a href="{{ url_for('liste_formations') }}" class="btn-primary">Découvrir nos formations</a>
+    </div>
+</div>
+
+<div class="features">
+    <div class="feature-card">
+        <div class="feature-icon">🚀</div>
+        <h3>Formations Pratiques</h3>
+        <p>Apprenez par la pratique avec des projets concrets</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">💻</div>
+        <h3>Technologies Modernes</h3>
+        <p>Formez-vous aux dernières technologies du marché</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Objectif Emploi</h3>
+        <p>Des formations conçues pour booster votre carrière</p>
+    </div>
+</div>
+{% endblock %}

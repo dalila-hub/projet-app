@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="formations-container">
+    <h1>Nos Formations</h1>
+    <div class="formations-grid">
+        {% for formation in formations %}
+        <div class="formation-card">
+            <div class="formation-header">
+                <h2>{{ formation.titre }}</h2>
+            </div>
+            <div class="formation-body">
+                <p class="duration">⏱️ Durée: {{ formation.duree }}</p>
+                <p class="level">
+                    Niveau: 
+                    <span class="level-badge level-{{ formation.niveau|lower }}">
+                        {{ formation.niveau }}
+                    </span>
+                </p>
+                <div class="technologies">
+                    <strong>Technologies:</strong>
+                    <div class="tech-tags">
+                        {% for tech in formation.technologies %}
+                        <span class="tech-tag">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="formation-footer">
+                <a href="{{ url_for('detail_formation', id=formation.id) }}" class="btn-details">
+                    Voir détails →
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
