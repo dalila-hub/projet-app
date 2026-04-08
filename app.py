@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import os
 from datetime import datetime
 
-app = flask.Flask(__name__)
+app = Flask(__name__)  # 'Flask' avec F majuscule
 
 # Liste statique des formations
 formations = [
@@ -39,14 +39,14 @@ formations = [
 @app.route('/')
 def index():
     """Page d'accueil"""
-    return flask.render_template('index.html', 
+    return render_template('index.html', 
                          titre="Bienvenue sur FormationHub",
                          date=datetime.now().strftime("%d/%m/%Y"))
 
 @app.route('/formations')
 def liste_formations():
     """Page listant toutes les formations"""
-    return flask.render_template('formations.html', 
+    return render_template('formations.html', 
                          formations=formations,
                          titre="Nos Formations")
 
@@ -55,7 +55,7 @@ def detail_formation(id):
     """Page détail d'une formation"""
     formation = next((f for f in formations if f['id'] == id), None)
     if formation:
-        return flask.render_template('formation_detail.html', 
+        return render_template('formation_detail.html', 
                              formation=formation,
                              titre=formation['titre'])
     return "Formation non trouvée", 404
