@@ -30,3 +30,6 @@ jobs:
       run: |
         python app.py & sleep 5
         echo "App started successfully"
+    - name: docker compose
+      run: | 
+        docker compose up -d
