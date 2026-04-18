@@ -31,6 +31,9 @@ jobs:
         python app.py & sleep 5
         echo "App started successfully"
 
+    - name: docker ccheck
+      run: docker ps -a
+
     - name: Build Docker image
       run: docker build -t formation-app .
 
