@@ -38,4 +38,4 @@ jobs:
       run: docker build -t formation-app .
 
     - name: Run container
-      run: docker run -d -p 3000:3000 formation-app
+      run: docker run -d -p 3001:3001 formation-app
