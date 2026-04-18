@@ -5,7 +5,7 @@ on:
     branches: ["deploy"]
 
 jobs:
-  test:
+  formation-app:
     runs-on: ubuntu-latest
 
     steps:
