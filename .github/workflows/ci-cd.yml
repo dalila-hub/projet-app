@@ -30,7 +30,8 @@ jobs:
       run: |
         python app.py & sleep 5
         echo "App started successfully"
-    - name: docker compose
-      run: | 
-        docker-compose down || true
-        docker compose up -d
+    - name: Stop old containers
+      run: docker compose down --remove-orphans || true
+
+    - name: Start fresh containers
+      run: docker compose up -d --force-recreate --remove-orphans
